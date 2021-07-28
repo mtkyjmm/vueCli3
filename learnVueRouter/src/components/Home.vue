@@ -1,0 +1,25 @@
+<template>
+  <div>
+      <h2>我是首页</h2>
+      <p>我是首页内容，哈哈哈</p>  
+      <router-link to='/home/news'>时事新闻</router-link>
+      <router-link to='/home/message'>新消息</router-link>
+      <router-view/>
+  </div>
+</template>
+
+<script>
+export default {
+  name: 'Home',
+  data () {
+    return {
+      msg: 'Welcome to Your Vue.js App'
+    }
+  }
+}
+</script>
+
+<!-- Add "scoped" attribute to limit CSS to this component only -->
+<style scoped>
+
+</style>

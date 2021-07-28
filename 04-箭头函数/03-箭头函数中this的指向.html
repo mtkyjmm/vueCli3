@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        setTimeout(function () {
+            console.log(this);//window
+        })
+
+        setTimeout(() => {
+            console.log(this);//window
+        })
+
+        const obj = {
+            aaa() {
+                setTimeout(function () {
+                    console.log(this);//window
+
+                    setTimeout(function () {
+                        console.log('line---27');
+                        console.log(this);//window
+                    })
+
+                    setTimeout(() => {
+                        console.log('line---32');
+                        console.log(this);//window
+                    })
+                })
+                console.log(this);//obj
+                setTimeout(() => {
+                    console.log(this);//obj
+
+                    setTimeout(function () {
+                        console.log('line---41');
+                        console.log(this);//window
+                    })
+
+                    setTimeout(() => {
+                        console.log('line---46');
+                        console.log(this);//obj
+                    })
+                })
+            }
+        }
+        obj.aaa();
+    </script>
+</body>
+
+</html>
