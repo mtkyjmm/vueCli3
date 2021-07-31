@@ -10,8 +10,8 @@ const Home = () => import('../components/Home');
 const About = () => import('../components/About');
 const User = () => import('../components/User');
 const Profile = () => import('../components/Profile');
-const HomeNews= ()=>import('../components/HomeNews');
-const HomeMessage= ()=>import('../components/HomeMessage');
+const HomeNews = () => import('../components/HomeNews');
+const HomeMessage = () => import('../components/HomeMessage');
 
 
 //1.通过Vue.use(插件) 来安装插件
@@ -31,32 +31,52 @@ const routes = [
   {
     path: '/home',
     component: Home,
-    children:[
+    meta: {
+      title: '首页'
+    },
+    children: [
       {
-        path:'',
-        redirect:'news'
+        path: '',
+        redirect: 'news'
       },
       {
-        path:'news',
-        component:HomeNews
+        path: 'news',
+        // meta: {
+        //   title: '新闻'
+        // },
+        component: HomeNews
       },
       {
-        path:'message',
-        component:HomeMessage
+        path: 'message',
+        component: HomeMessage
       },
     ]
 
   },
   {
     path: '/about',
+    meta: {
+      title: '关于'
+    },
     component: About
   },
   {
     path: '/user/:userId',
-    component: User
-  }, 
+    meta: {
+      title: '用户'
+    },
+    component: User,
+    beforeEnter: (to, from, next) => {
+      // ... 路由独享首位
+      console.log('beforeEnter----------');
+      next();
+    }
+  },
   {
     path: '/profile',
+    meta: {
+      title: '档案'
+    },
     component: Profile
   },
 ]
@@ -65,6 +85,15 @@ const router = new VueRouter({
   routes,
   mode: 'history',
   linkActiveClass: 'active'
+})
+
+router.beforeEach((to, from, next) => {
+  // 从from跳到to
+  // console.log(to);
+  document.title = to.meta.title;//第一次进入为undefined
+  document.title = to.matched[0].meta.title;
+  // 一定要执行next() 否则无法进行下一步 
+  next()
 })
 
 // 3.将router传入到vue实例中
