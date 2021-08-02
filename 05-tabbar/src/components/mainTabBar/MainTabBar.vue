@@ -2,7 +2,7 @@
   <div id="main-tab-bar">
     <tab-bar>
       <tab-bar-item path='/home' activeColor='green'>
-        <img slot="item-icon" src="../../assets/img/tabbar/home.png" alt="" />
+        <img slot="item-icon" src="~assets/img/tabbar/home.png" alt="" />
         <img slot="item-icon-active" src="../../assets/img/tabbar/home_active.png" alt="" />
         <div slot="item-text">首页</div>
       </tab-bar-item>
@@ -26,8 +26,8 @@
 </template>
 
 <script>
-import TabBar from "./Tabbar";
-import TabBarItem from "./TabBarItem";
+import TabBar from "../tabbar/Tabbar";
+import TabBarItem from "../tabbar/TabBarItem";
 export default {
   name: "MainTabBar",
    components: {
