@@ -1,17 +1,12 @@
 <template>
-  <div>
-      <ul>
-         <li>新闻1</li>
-         <li>新闻2</li>
-         <li>新闻3</li>
-         <li>新闻4</li>
-     </ul>  
+  <div class="message">
+      <h2>Message</h2>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'HomeNews',
+  name: 'Message',
   data () {
     return {
       msg: 'Welcome to Your Vue.js App'
@@ -22,7 +17,5 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-ul>li{
-    list-style: none;
-}
+
 </style>

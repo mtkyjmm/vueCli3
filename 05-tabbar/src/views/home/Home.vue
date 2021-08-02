@@ -1,13 +1,12 @@
 <template>
-  <div>
-      <h2>我是关于</h2>
-      <p>我是关于内容，嘿嘿嘿</p>  
+  <div class="home">
+      <h2>Home</h2>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'About',
+  name: 'Home',
   data () {
     return {
       msg: 'Welcome to Your Vue.js App'
